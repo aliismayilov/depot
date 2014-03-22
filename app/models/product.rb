@@ -7,7 +7,8 @@ class Product < ActiveRecord::Base
   }
 
   validates :title,
-    uniqueness: true
+    uniqueness: true,
+    length: { minimum: 10, message: 'should be at least 10 characters' }
 
   validates :image_url,
     allow_blank: true,
