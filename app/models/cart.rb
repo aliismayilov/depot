@@ -6,7 +6,12 @@ class Cart < ActiveRecord::Base
     if current_item
       current_item.quantity += 1
     else
-      current_item = line_items.build(product_id: product_id)
+      product = Product.find product_id
+      current_item = LineItem.new(
+        cart: self,
+        product: product,
+        price: product.price
+      )
     end
     current_item
   end
