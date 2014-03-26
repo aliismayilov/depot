@@ -67,6 +67,7 @@ class LineItemsController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to @line_item.cart }
+      format.js   { @current_item = @line_item  }
       format.json { head :no_content }
     end
   end
